@@ -1,0 +1,14 @@
+{
+  "name": "first-project-main",
+  "version": "1.0.0",
+  "description": "My First Project, This could be the start of something good.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eris": "^0.17.2"
+  }
+}
