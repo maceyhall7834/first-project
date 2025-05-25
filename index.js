@@ -11,8 +11,8 @@ bot.on("error", (err) => {
 bot.on("ready", () => {
   console.log(`Logged in as ${bot.user.username}#${bot.user.discriminator}`);
   
-  // Set the bot's presence to "Playing Minecraft"
-  bot.editStatus("online", {
+  // Set the bot's presence to "Idle" and "Playing Minecraft"
+  bot.editStatus("idle", {
     name: "Minecraft",
     type: 0 // 0 means "Playing"
   });
