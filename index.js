@@ -12,7 +12,7 @@ bot.on("ready", () => {
   console.log(`Logged in as ${bot.user.username}#${bot.user.discriminator}`);
   
   // Set the bot's presence to "Idle" and "Playing Minecraft"
-  bot.editStatus("idle");
+  bot.editStatus("dnd");
 });
 
 bot.connect(); // Get the bot to connect to Discord
