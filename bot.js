@@ -18,6 +18,7 @@ function createBot({ host, port }) {
     username,
     auth: 'offline',
     viewDistance: 'tiny'
+    version: '1.21.11'
   });
 
   bot.loadPlugin(pathfinder);
