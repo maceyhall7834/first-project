@@ -25,15 +25,10 @@ function createBotFor(server) {
 
   bot.once('spawn', () => {
     console.log(`${BOT_NAME} spawned on ${host}:${port} — AFK`);
-    try { bot.chat('hiii'); } catch (e) {}
+    try { bot.chat(' '); } catch (e) {}
     bot._afkInterval = setInterval(() => {
       bot.look(Math.random() * Math.PI * 2, Math.random() * Math.PI - (Math.PI / 2)).catch(()=>{});
     }, 60000);
-  });
-
-  bot.on('chat', (username) => {
-    if (username === bot.username) return;
-    try { bot.chat('hello'); } catch (e) {}
   });
 
   bot.on('end', () => {
