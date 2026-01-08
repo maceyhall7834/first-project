@@ -1,6 +1,5 @@
 import mineflayer from 'mineflayer';
-import { pathfinder, Movements, goals } from 'mineflayer-pathfinder';
-const Vec3 = mineflayer.vec3 || ((x,y,z)=>({x,y,z}));
+import { pathfinder, Movements } from 'mineflayer-pathfinder';
 import { MovementEmulator } from './movement.js';
 
 export function spawnBotsForServers(servers) {
@@ -18,7 +17,6 @@ function createBot({ host, port }) {
     port,
     username,
     auth: 'offline',
-    // reduce load: tiny view distance (server must allow it)
     viewDistance: 'tiny'
   });
 
@@ -36,10 +34,8 @@ function createBot({ host, port }) {
     // set pathfinder movements to emulate a player (no block breaking)
     const defaultMove = new Movements(bot);
     defaultMove.canDig = false;
-    defaultMove.scafoldingBlocks = []; // don't scaffold
     bot.pathfinder.setMovements(defaultMove);
 
-    // Movement emulator will issue setGoal periodically and emulate controls via pathfinder.goto
     const emulator = new MovementEmulator(bot, { spawnChunkX, spawnChunkZ, chunkRadius });
     emulator.start();
   });
