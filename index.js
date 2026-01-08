@@ -23,13 +23,12 @@ function createBotFor(server) {
     version: process.env.MC_VERSION || '1.20.1',
   });
 
-  bot.once('spawn', () => {
-    console.log(`${BOT_NAME} spawned on ${host}:${port} — AFK`);
-    try { bot.chat(' '); } catch (e) {}
-    bot._afkInterval = setInterval(() => {
-      bot.look(Math.random() * Math.PI * 2, Math.random() * Math.PI - (Math.PI / 2)).catch(()=>{});
-    }, 60000);
-  });
+bot.once('spawn', () => {
+  console.log(`${BOT_NAME} spawned on ${host}:${port}`);
+  bot._afkInterval = setInterval(() => {
+    bot.look(Math.random() * Math.PI * 2, Math.random() * Math.PI - (Math.PI / 2)).catch(()=>{});
+  }, 60000);
+});
 
   bot.on('end', () => {
     console.log(`${BOT_NAME} disconnected from ${host}:${port}`);
