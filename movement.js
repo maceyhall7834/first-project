@@ -1,4 +1,5 @@
-import { goals } from 'mineflayer-pathfinder';
+import pathfinderPkg from 'mineflayer-pathfinder';
+const { goals } = pathfinderPkg;
 
 // Helper to create Vec3 using mineflayer's vec3 if available, otherwise plain object.
 function makeVec3(bot, x, y, z) {
@@ -36,7 +37,6 @@ export class MovementEmulator {
     const x = (cx + 0.5) * 16 + (Math.random() * 10 - 5);
     const z = (cz + 0.5) * 16 + (Math.random() * 10 - 5);
 
-    // sample Y near current position to avoid unreasonable vertical goals
     const y = Math.max(1, Math.floor(this.bot.entity.position.y + (Math.random() * 3 - 1.5)));
     return makeVec3(this.bot, x, y, z);
   }
