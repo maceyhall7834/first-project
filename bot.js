@@ -1,6 +1,6 @@
 import mineflayer from 'mineflayer';
 import { pathfinder, Movements, goals } from 'mineflayer-pathfinder';
-import Vec3 from 'vec3';
+const Vec3 = mineflayer.vec3 || ((x,y,z)=>({x,y,z}));
 import { MovementEmulator } from './movement.js';
 
 export function spawnBotsForServers(servers) {
