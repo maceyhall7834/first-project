@@ -1,14 +1,15 @@
 {
-  "name": "first-project-main",
+  "name": "mc-stress-core",
   "version": "1.0.0",
-  "description": "My First Project, This could be the start of something good.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "eris": "^0.17.2"
+    "dotenv": "^16.0.0",
+    "mineflayer": "^4.0.0",
+    "mineflayer-pathfinder": "^1.0.0",
+    "vec3": "^0.1.26"
   }
 }
