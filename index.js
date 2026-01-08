@@ -1,18 +1,16 @@
-const Eris = require("eris");
-const keep_alive = require('./keep_alive.js');
+import './keep_alive.js';
+import dotenv from 'dotenv';
+import { spawnBotsForServers } from './bot.js';
 
-// Replace TOKEN with your bot account's token
-const bot = new Eris(process.env.token);
+dotenv.config();
 
-bot.on("error", (err) => {
-  console.error(err); // or your preferred logger
-});
+const serversRaw = (process.env.SERVER_LIST || '').trim();
+if (!serversRaw) {
+  console.error('No servers specified in .env (SERVER_LIST).');
+  process.exit(1);
+}
 
-bot.on("ready", () => {
-  console.log(`Logged in as ${bot.user.username}#${bot.user.discriminator}`);
-  
-  // Set the bot's presence to "Idle" and "Playing Minecraft"
-  bot.editStatus("dnd");
-});
+const servers = serversRaw.split(',').map(s => s.trim()).filter(Boolean);
 
-bot.connect(); // Get the bot to connect to Discord
+// Spawn a single offline bot named exactly "Core" onto each server in the list.
+spawnBotsForServers(servers);
