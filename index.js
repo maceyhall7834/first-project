@@ -13,7 +13,7 @@ const servers = SERVER_LIST_RAW.split(',').map(s => s.trim()).filter(Boolean);
 
 // Backoff parameters
 const INITIAL_BACKOFF_MS = 2000;         // 2s
-const MAX_BACKOFF_MS = 5 * 60 * 1000;    // 5 minutes
+const MAX_BACKOFF_MS = 2 * 60 * 1000;    // 2 minutes
 const JITTER_FACTOR = 0.2;               // ±20% multiplicative jitter
 
 function createBotManagerFor(server) {
